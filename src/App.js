@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import './App.css';
 
 const UserCard = ({user}) => {
-  console.log('>>>>>> user', user)
   if(!user) return '';
   return (
     <div>
@@ -35,13 +34,11 @@ const murrays = [
     name: 'What About Bob',
   },
 ]
-const getFirstId = users => users[0].id
 function App() {
   const [currentDirection, setDirection] = useState(false)
   const [murrayArray, setMurrayArray] = useState(murrays);
   const [chosenId, setChosenId] = useState(murrays[0].id);
   const changeDir = () => {
-    console.log('>>>>>> chosenId', chosenId);
     setDirection(!currentDirection)
     murrayArray.sort((murray1, murray2) => {
       return currentDirection ? murray1.id - murray2.id : murray2.id - murray1.id
